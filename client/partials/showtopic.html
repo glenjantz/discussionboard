@@ -1,0 +1,32 @@
+<nav>
+  <a href="#!/dashboard">dashboard</a> | <a href="" ng-click="logout()">logout</a>
+</nav>
+
+<h1><a href="#!user/{{topic._user._id}}">{{topic._user.name}}</a> posted a topic:</h1><br>
+<b>{{topic.topic}}</b><br>
+<p>Description: {{topic.description}}</p><br>
+<br>
+
+Post your answer here:
+<form ng-submit="post()">
+  <textarea rows="8" cols="80" ng-model="newPost.post"></textarea>
+  <input type="submit" value="Post">
+</form>
+<hr>
+<br>
+<h1>POSTS</h1>
+<div ng-repeat="post in posts">
+  <p><a href="#!/user/{{post._user._id}}">{{post._user.name}}</a>: {{post.post}}</p>
+  {{post.upvote}}<button ng-click="addlike(post)">upvote</button>
+  {{post.downvote}}<button ng-click="adddislike(post)">downvote</button><br>
+
+  comments!
+    <div ng-repeat="comment in post.comments">
+        <p>{{comment._user.name}} : {{comment.comment}}</p>
+    </div>
+  <form ng-submit="addcomment(post)">
+    <textarea rows="8" cols="80" ng-model="newComment.comment"></textarea>
+    <input type="submit" value="Add comment">
+  </form>
+  <hr>
+</div>

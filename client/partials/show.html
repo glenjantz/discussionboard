@@ -1,0 +1,19 @@
+<table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Birthday</th>
+        <th>User Created</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{user.fname}}</td>
+        <td>{{user.lname}}</td>
+        <td>{{user.bday | date: 'MM-dd-yyyy'}}</td>
+        <td>{{user.createdAt}}</td>
+      </tr>
+    </tbody>
+  </table>
+<a href="#!/">go home</a>

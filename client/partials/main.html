@@ -1,0 +1,14 @@
+<h1>Welcome, {{user.name}}</h1>
+
+<input type="text"placeholder="mm-dd-yyyy" ng-model="bdayfilter.date">
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users | filter: bdayfilter.date">
+        <td>{{user.name}}</td>
+    </tbody>
+  </table>

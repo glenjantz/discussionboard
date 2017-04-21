@@ -1,0 +1,41 @@
+<h1>Welcome, {{user.name}}</h1>
+<form ng-submit="filter()">
+  <input type="text" ng-model="filterit" placeholder="filter...">
+  <input type="submit" value="filter">
+</form>
+
+<table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Topics</th>
+        <th>User Name</th>
+        <th>Posts</th>
+        <th>ID</th>
+        <th>delete</th>
+        <th>posts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="topic in topics | filter: filterme">
+
+        <td>{{topic.category}}</td>
+        <td><a href="#!/showtopic/{{topic._id}}">{{topic.topic}}</td>
+        <td><a href="#!/user/{{topic._user._id}}">{{topic._user.name}}</td>
+        <td>waiting...</td>
+        <td>{{topic._id}}</td>
+        <td><button ng-if="topic._user._id == user._id">Button</button></td>
+        <td>{{topic.posts.length}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+<h1>Add a new Topic</h1>
+<form ng-submit="create()">
+  Topic: <input type="text" ng-model="newTopic.topic"><br>
+  Description: <input type="text" ng-model="newTopic.description"><br>
+  Category: <select ng-model="newTopic.category">
+              <option ng-repeat="category in categories" ng-value="category">{{category}}</option>
+            </select>
+            <input type="submit" value="Submit">
+</form>
